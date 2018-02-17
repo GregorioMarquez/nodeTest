@@ -11,9 +11,7 @@ var fileServer = new(nodeStatic.Server)();
 
 var app = http.createServer(function(req, res) {
   fileServer.serve(req, res);
-}).listen( PORT , function(){
-  console.log('listening on', http.address().port);
-});
+}).listen( PORT );
 
 var io = socketIO.listen(app);
 io.sockets.on('connection', function(socket) {
